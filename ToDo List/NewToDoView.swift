@@ -10,6 +10,8 @@ import SwiftUI
 struct NewToDoView: View {
     @State var title: String
     @State var isImportant: Bool
+    
+   // @State private var showNewTask = false
     var body: some View {
         VStack{
             Text("Add a new task")
@@ -27,13 +29,25 @@ struct NewToDoView: View {
             .padding()
             
             Button(action: {
-              
+                
             }) {
                 Text("Add")
             }
             
+//            if showNewTask {
+//                NewToDoView(title: "", isImportant: false)
+//            }
+//
+//            List {
+//                    ForEach (toDoItems) { toDoItem in
+//                            Text(toDoItem.title)
+//                        }
+//            }
             
             
+            
+            
+        
         }
     }
 }
