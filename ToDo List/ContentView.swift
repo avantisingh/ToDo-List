@@ -16,7 +16,7 @@ struct ContentView: View {
             HStack {
                 Text("To-Do List")
                     .font(.system(size: 40))
-                         .fontWeight(.black)
+                    .fontWeight(.black)
                 Spacer()
             }
             .padding()
@@ -24,10 +24,27 @@ struct ContentView: View {
             Button(action: {
                 self.showNewTask = true
             }) {
-            Text("+")
+                Text("+")
             }
             
             Spacer()
+            List {
+                ForEach (toDoItems) { toDoItem in
+                    if toDoItem.isImportant == true {
+                        Text("‼️" + toDoItem.title)
+                    } else {
+                        Text(toDoItem.title)
+                    }
+                }
+                .listStyle(.plain)
+                
+                
+            }
+            
+            if showNewTask {
+                NewToDoView(toDoItems: $toDoItems, showNewTask: $showNewTask, title: "", isImportant: false )
+
+            }
         }
     }
 }
